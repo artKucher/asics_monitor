@@ -1,0 +1,17 @@
+services:
+  api:
+    image: api
+    container_name: api
+    build: .
+    command: go run main.go
+    restart: always
+    ports:
+      - 3000:3000
+    env_file:
+      - .environment
+    volumes:
+      - .:/code
+
+networks:
+  default:
+    name: asics_monitor
